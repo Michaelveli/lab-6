@@ -74,7 +74,6 @@ int main()
 		for (char c : password) {
 			if (islower(c)) {
 				lowercase_letters = true;
-
 			}
 
 		}
@@ -119,7 +118,7 @@ int main()
 			cout << "Enter another password. \n";
 			cin >> password;
 		}
-
+		break;
 
 	} // while closing bracket
 
