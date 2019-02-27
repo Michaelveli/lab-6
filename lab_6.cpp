@@ -5,9 +5,10 @@
 using namespace std;
 
 int main()
-{
+{   
 	string  password;
-	string password_2; // compare against 1st password for step 8
+	string password_2;
+	string password_3; // compare against 1st password for step 8
 	bool valid_password = false;
 
 
@@ -118,10 +119,34 @@ int main()
 		break;
 
 	} // while closing bracket
+	bool valid_password2 = true;
+	char user_input;
+	cout << "Your password is " << password << endl << endl;
 
-	cout << "Your password is " << password << endl;
-	cout << "Enter 1. to create another password, or 2. to exit. \n";
+	while (valid_password2 == true) {
+		cout << "Enter 1 to create another password, or 2 to exit. \n";
+		cin >> user_input;
+		if (user_input == '1') {
+			cout << "Enter old password for confirmation. \n";
+			cin >> password_2;
+			if (password_2 != password) {
+				cout << "Password does not match. \n";
+				continue;
+			}
+			else { 
+				cout << "Enter desired new password. \n";
+				cin >> password_3;
+				cout << "Your new password is " << password_3 << endl << endl;
+			}
+			
+			break;
+		}
+
+		if (user_input == '2') {
+			break;
+		}
 
 
+	}
 
 } // main closing bracket
