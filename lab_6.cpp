@@ -101,10 +101,10 @@ int main()
 				break;
 			}
 			//7. checks for white space, tap, or newline
-			bool whitespace = false;
+			bool whitespace = true;
 			for (char c : password) {
 				if (isspace(c)) {
-					whitespace = true;
+					whitespace = false;
 				}
 				else {
 					cout << "Password must not contain whitespace. \n";
