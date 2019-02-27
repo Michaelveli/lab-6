@@ -1,6 +1,3 @@
-// lab_6.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "pch.h"
 #include <iostream>
 #include <string>
@@ -46,99 +43,82 @@ int main()
 
 		//3. checks for special character
 		bool special_character = false;
-		for (char c : password){
+		for (char c : password) {
 			if (ispunct(c)) {
 				special_character = true;
-				break;
+				
 			}
 			else {
 				cout << "Password must include a special character. \n";
 				valid_password = false;
-				break;
+				
 			}
-	
+
 		}
 
-			//4. checks for letters
-			bool password_letters = false;
-			for (char c : password) {
-				if (isalpha(c)) {
-					password_letters = true;
-					
-				}
-				else {
-					cout << "Password must include letters. \n";
-					valid_password = false;
-				}
-				break;
+		//4. checks for letters
+		bool password_letters = false;
+		for (char c : password) {
+			if (isalpha(c)) {
+				password_letters = true;
+
+			}
+			else {
+				cout << "Password must include letters. \n";
+				valid_password = false;
+			}
+			
+		}
+
+		//5. checks for uppercase
+		bool uppercase_letters = false;
+		for (char c : password) {
+			if (isupper(c)) {
+				uppercase_letters = true;
+
+			}
+			else {
+				cout << "Password must include an uppercase letter. \n";
+				valid_password = false;
 			}
 
-			//5. checks for uppercase
-			bool uppercase_letters = false;
-			for (char c : password) {
-				if (isupper(c)) {
-					uppercase_letters = true;
+		}
+
+		//6. checks for lowercase
+		bool lowercase_letters = false;
+		for (char c : password) {
+			if (islower(c)) {
+				lowercase_letters = true;
+
+			}
+			else {
+				cout << "Password must contain lowercase letters. \n";
+				valid_password = false;
+			}
+			
+		}
+		//7. checks for white space, tap, or newline
+		bool whitespace = true;
+		for (char c : password) {
+			if (isspace(c)) {
+				whitespace = false;
+			}
+			else {
+				cout << "Password must not contain whitespace. \n";
+				valid_password = false;
+			}
+			
+		}
+
+		if (!valid_password) {
+			cout << "Enter another password. \n";
+			cin >> password;
+		}
 		
-				}
-				else {
-					cout << "Password must include an uppercase letter. \n";
-					valid_password = false;
-				}
-				break;
-			}
-			
-			//6. checks for lowercase
-			bool lowercase_letters = false;
-			for (char c : password) {
-				if (islower(c)) {
-					lowercase_letters = true;
-					
-				}
-				else {
-						cout << "Password must contain lowercase letters. \n";
-						valid_password = false;
-				}
-				break;
-			}
-			//7. checks for white space, tap, or newline
-			bool whitespace = true;
-			for (char c : password) {
-				if (isspace(c)) {
-					whitespace = false;
-				}
-				else {
-					cout << "Password must not contain whitespace. \n";
-					valid_password = false;
-				}
-				break;
-			}
-
-			if (!valid_password) {
-				cout << "Please try again. \n";
-			
-			}
-			break;
-
-			cout << "Your password is " << password << endl;
-		} // while closing bracket
+		break;
+		
+	} // while closing bracket
 
 	cout << "Your password is " << password << endl;
 
 } // main closing bracket
-
-
-	
-
-
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
