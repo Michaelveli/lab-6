@@ -47,11 +47,6 @@ int main()
 			if (ispunct(c)) {
 				special_character = true;
 			}
-			else {
-				cout << "Password must include a special character. \n";
-				valid_password = false;
-
-			}
 
 		}
 
@@ -60,10 +55,6 @@ int main()
 		for (char c : password) {
 			if (isalpha(c)) {
 				password_letters = true;
-			}
-			else {
-				cout << "Password must include letters. \n";
-				valid_password = false;
 			}
 
 		}
@@ -75,10 +66,6 @@ int main()
 				uppercase_letters = true;
 
 			}
-			else {
-				cout << "Password must include an uppercase letter. \n";
-				valid_password = false;
-			}
 
 		}
 
@@ -87,11 +74,7 @@ int main()
 		for (char c : password) {
 			if (islower(c)) {
 				lowercase_letters = true;
-				
-			}
-			else {
-				cout << "Password must contain lowercase letters. \n";
-				valid_password = false;
+
 			}
 
 		}
@@ -100,13 +83,36 @@ int main()
 		for (char c : password) {
 			if (isspace(c)) {
 				whitespace = false;
-			
-			}
-			else {
-				cout << "Password must not contain whitespace. \n";
-				valid_password = false;
+
 			}
 
+		}
+		
+		
+
+		
+		if (!password_letters) {
+			cout << "Password must include letters. \n";
+			valid_password = false;
+		}
+		if (!special_character) {
+			cout << "Password must include a special character. \n";
+			valid_password = false;
+		}
+
+		if (!uppercase_letters) {
+			cout << "Password must include an uppercase letter. \n";
+			valid_password = false;
+		}
+
+		if (!lowercase_letters) {
+			cout << "Password must contain lowercase letters. \n";
+			valid_password = false;
+		}
+
+		if (whitespace) {
+			cout << "Password must contain lowercase letters. \n";
+			valid_password = false;
 		}
 
 		if (!valid_password) {
