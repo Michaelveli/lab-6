@@ -46,12 +46,11 @@ int main()
 		for (char c : password) {
 			if (ispunct(c)) {
 				special_character = true;
-				break;
 			}
 			else {
 				cout << "Password must include a special character. \n";
 				valid_password = false;
-				
+
 			}
 
 		}
@@ -61,13 +60,12 @@ int main()
 		for (char c : password) {
 			if (isalpha(c)) {
 				password_letters = true;
-				break;
 			}
 			else {
 				cout << "Password must include letters. \n";
 				valid_password = false;
 			}
-			
+
 		}
 
 		//5. checks for uppercase
@@ -75,7 +73,7 @@ int main()
 		for (char c : password) {
 			if (isupper(c)) {
 				uppercase_letters = true;
-				break;
+
 			}
 			else {
 				cout << "Password must include an uppercase letter. \n";
@@ -89,39 +87,39 @@ int main()
 		for (char c : password) {
 			if (islower(c)) {
 				lowercase_letters = true;
-				break;
+				
 			}
 			else {
 				cout << "Password must contain lowercase letters. \n";
 				valid_password = false;
 			}
-			
+
 		}
 		//7. checks for white space, tap, or newline
 		bool whitespace = true;
 		for (char c : password) {
 			if (isspace(c)) {
 				whitespace = false;
-				break;
+			
 			}
 			else {
 				cout << "Password must not contain whitespace. \n";
 				valid_password = false;
 			}
-			
+
 		}
 
 		if (!valid_password) {
 			cout << "Enter another password. \n";
 			cin >> password;
 		}
-		
-		
+
+
 	} // while closing bracket
 
 	cout << "Your password is " << password << endl;
 	cout << "Enter 1. to create another password, or 2. to exit. \n";
-	
-	
+
+
 
 } // main closing bracket
