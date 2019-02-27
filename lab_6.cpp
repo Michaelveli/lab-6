@@ -87,9 +87,6 @@ int main()
 
 		}
 		
-		
-
-		
 		if (!password_letters) {
 			cout << "Password must include letters. \n";
 			valid_password = false;
@@ -109,8 +106,8 @@ int main()
 			valid_password = false;
 		}
 
-		if (whitespace) {
-			cout << "Password must contain lowercase letters. \n";
+		if (whitespace == false) {
+			cout << "Password must not contain a whitespace. \n";
 			valid_password = false;
 		}
 
