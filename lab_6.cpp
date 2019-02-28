@@ -3,16 +3,12 @@
 #include <string>
 #include <cctype>
 using namespace std;
+string password;
+string password_2;
+string password_3; // compare against 1st password for step 8
+char user_input;
 
-int main()
-{   
-	string  password;
-	string password_2;
-	string password_3; // compare against 1st password for step 8
-	bool valid_password = false;
-
-
-
+void user_menu() {
 	cout << "Password Requirements" << endl
 		<< "1.Password must be at least 8 characters." << endl
 		<< "2.Password must contain at least one number." << endl
@@ -24,7 +20,10 @@ int main()
 		<< "8.If the user modifies the old password, the new password must not be the same as the previous password" << endl << endl;
 	cout << "Enter a New Password: ";
 	getline(cin, password);
+}
 
+void password_main() {
+	bool valid_password = false;
 	while (!valid_password) {
 		bool valid_password = true;
 
@@ -87,7 +86,7 @@ int main()
 			}
 
 		}
-		
+
 		if (!password_letters) {
 			cout << "Password must include letters. \n";
 			valid_password = false;
@@ -118,9 +117,10 @@ int main()
 		}
 		break;
 
-	} // while closing bracket
+	}// while closing bracket
+}
+void user_menu2() {
 	bool valid_password2 = true;
-	char user_input;
 	cout << "Your password is " << password << endl << endl;
 
 	while (valid_password2 == true) {
@@ -133,12 +133,12 @@ int main()
 				cout << "Password does not match. \n";
 				continue;
 			}
-			else { 
-				cout << "Enter desired new password. \n";
-				cin >> password_3;
-				cout << "Your new password is " << password_3 << endl << endl;
+			else {
+				user_menu();
+				password_main();
+				user_menu2();
 			}
-			
+
 			break;
 		}
 
@@ -148,5 +148,13 @@ int main()
 
 
 	}
+}
+// main closing br
 
-} // main closing bracket
+int main()
+{
+	user_menu();
+	password_main();
+	user_menu2();
+
+}
