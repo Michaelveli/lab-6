@@ -5,7 +5,6 @@
 using namespace std;
 string password;
 string password_2;
-string password_3; // compare against 1st password for step 8
 char user_input;
 
 void user_menu() {
@@ -17,12 +16,13 @@ void user_menu() {
 		<< "5.Password must contain at least one uppercase letter." << endl
 		<< "6.Password must contain at least one lowercase letter." << endl
 		<< "7.Password must not contain a whitespace character such as a space, a tap, a newline character." << endl
-		<< "8.If the user modifies the old password, the new password must not be the same as the previous password" << endl << endl;
-	cout << "Enter a New Password: ";
-	getline(cin, password);
+		<< "8.If the user modifies the old password, the new password must not be the same as the previous password" << endl
+	    << "Enter a Password: " << endl;
 }
 
 void password_main() {
+	getline(cin, password);
+
 	bool valid_password = false;
 	while (!valid_password) {
 		bool valid_password = true;
@@ -115,10 +115,17 @@ void password_main() {
 			cout << "Enter another password. \n";
 			cin >> password;
 		}
+
+		if (password == password_2) {
+			cout << "If you're seeing this you entered the same password. Enter a new password." << endl;
+			valid_password = false;
+			password_main();
+		}
 		break;
 
 	}// while closing bracket
 }
+//closing menu
 void user_menu2() {
 	bool valid_password2 = true;
 	cout << "Your password is " << password << endl << endl;
@@ -131,10 +138,10 @@ void user_menu2() {
 			cin >> password_2;
 			if (password_2 != password) {
 				cout << "Password does not match. \n";
-				continue;
+				password_main();
 			}
+			
 			else {
-				user_menu();
 				password_main();
 				user_menu2();
 			}
