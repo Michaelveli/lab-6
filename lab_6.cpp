@@ -5,7 +5,8 @@
 using namespace std;
 string password;
 string password_2;
-char user_input;
+
+
 
 void user_menu() {
 	cout << "Password Requirements" << endl
@@ -111,54 +112,57 @@ void password_main() {
 			valid_password = false;
 		}
 
+
 		if (valid_password = false) {
 			cout << "Enter another password. \n";
 			password_main();
 		}
-		
-	
+
+		if (password == password_2) {
+			cout << "If you're seeing this you entered the same password. Enter a new password." << endl;
+			password_main();
+		}
+
+
 	}// while closing bracket
-	
-	if (password == password_2) {
-		cout << "If you're seeing this you entered the same password. Enter a new password." << endl;
-		password_main();
-	}
 }
 //closing menu
+
 void user_menu2() {
-	bool valid_password2 = true;
+	char user_input;
+
 	cout << "Your password is " << password << endl << endl;
 
-	while (valid_password2 == true) {
-		cout << "Enter 1 to create another password, or 2 to exit. \n";
-		cin >> user_input;
-		if (user_input == '1') {
-			cout << "Enter old password for confirmation. \n";
-			cin >> password_2;
-			if (password_2 != password) {
-				cout << "Password does not match. \n";
-				password_main();
-			}
+	cout << "Enter 1 to create another password, or 2 to exit. \n";
+	cin >> user_input;
 
-			else {
-				password_main();
-				user_menu2();
-			}
+	if (user_input == '1') {
+		cout << "Enter old password for confirmation.";
+		getline(cin, password_2);
+
+		// fix this line, it doesnt compare and it throws the entire loop off
+		if (password != password_2) {
+			cout << "Password does not match old password. Try again. \n";
+			user_menu2();
 		}
-
-		if (user_input == '2') {
-			break;
+		  else {
+			password_main();
+		    
 		}
-
 
 	}
+
+	if (user_input == '2') {
+		cout << "Goodbye! ";
+	}
+
 }
-// main closing br
 
 int main()
 {
 	user_menu();
 	password_main();
 	user_menu2();
-
+	return 0;
 }
+// main closing br
