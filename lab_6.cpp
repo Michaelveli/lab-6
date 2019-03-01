@@ -17,7 +17,7 @@ void user_menu() {
 		<< "6.Password must contain at least one lowercase letter." << endl
 		<< "7.Password must not contain a whitespace character such as a space, a tap, a newline character." << endl
 		<< "8.If the user modifies the old password, the new password must not be the same as the previous password" << endl
-	    << "Enter a Password: " << endl;
+		<< "Enter a Password: " << endl;
 }
 
 void password_main() {
@@ -106,24 +106,23 @@ void password_main() {
 			valid_password = false;
 		}
 
-		if (whitespace == false) {
+		if (whitespace) {
 			cout << "Password must not contain a whitespace. \n";
 			valid_password = false;
 		}
 
-		if (!valid_password) {
+		if (valid_password = false) {
 			cout << "Enter another password. \n";
-			cin >> password;
-		}
-
-		if (password == password_2) {
-			cout << "If you're seeing this you entered the same password. Enter a new password." << endl;
-			valid_password = false;
 			password_main();
 		}
-		break;
-
+		
+	
 	}// while closing bracket
+	
+	if (password == password_2) {
+		cout << "If you're seeing this you entered the same password. Enter a new password." << endl;
+		password_main();
+	}
 }
 //closing menu
 void user_menu2() {
@@ -140,13 +139,11 @@ void user_menu2() {
 				cout << "Password does not match. \n";
 				password_main();
 			}
-			
+
 			else {
 				password_main();
 				user_menu2();
 			}
-
-			break;
 		}
 
 		if (user_input == '2') {
