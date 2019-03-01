@@ -5,7 +5,7 @@
 using namespace std;
 string password;
 string password_2;
-
+char user_input;
 
 
 void user_menu() {
@@ -129,8 +129,7 @@ void password_main() {
 //closing menu
 
 void user_menu2() {
-	char user_input;
-
+	
 	cout << "Your password is " << password << endl << endl;
 
 	cout << "Enter 1 to create another password, or 2 to exit. \n";
@@ -140,14 +139,12 @@ void user_menu2() {
 		cout << "Enter old password for confirmation.";
 		getline(cin, password_2);
 
-		// fix this line, it doesnt compare and it throws the entire loop off
-		if (password != password_2) {
+		if (password_2 != password) {
 			cout << "Password does not match old password. Try again. \n";
 			user_menu2();
 		}
-		  else {
+		else {
 			password_main();
-		    
 		}
 
 	}
@@ -163,6 +160,6 @@ int main()
 	user_menu();
 	password_main();
 	user_menu2();
-	return 0;
+
 }
-// main closing br
+
